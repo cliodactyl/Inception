@@ -39,14 +39,27 @@ Client (browser)
 .
 ├── Makefile
 ├── README.md
-└── srcs/
-    ├── .env
+└── srcs
     ├── docker-compose.yml
-    └── requirements/
-        ├── mariadb/
-        ├── nginx/
-        └── wordpress/
-```
+    └── requirements
+        ├── mariadb
+        │   ├── conf
+        │   │   └── 50-server.cnf
+        │   ├── Dockerfile
+        │   └── tools
+        │       └── run_mariadb.sh
+        ├── nginx
+        │   ├── conf
+        │   │   └── nginx.conf
+        │   ├── Dockerfile
+        │   └── tools
+        │       └── wait_wordpress.sh
+        └── wordpress
+            ├── conf
+            │   └── www.conf
+            ├── Dockerfile
+            └── tools
+                └── auto_config.sh
 
 ---
 
