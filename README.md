@@ -1,4 +1,4 @@
-# 🐳 Inception — Multi-container DevOps infrastructure with Docker Compose
+# 🐳 Inception : Multi-container DevOps infrastructure with Docker Compose
 
 ## 📝 Description
 
@@ -406,7 +406,7 @@ All AI-assisted suggestions were manually reviewed, tested and validated to ensu
 
 ---
 
-# 🎯 Educational objectives
+# 🎯 Objectives
 
 This project explores:
 
