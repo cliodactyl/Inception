@@ -1,36 +1,40 @@
 NAME = inception
 COMPOSE = docker compose -f srcs/docker-compose.yml
 
+DATA_DIR = $(HOME)/data
+MARIADB_DIR = $(DATA_DIR)/mariadb
+WORDPRESS_DIR = $(DATA_DIR)/wordpress
+
 all: up
 
 up:
-	mkdir -p $(HOME)/data/mariadb
-	mkdir -p $(HOME)/data/wordpress
-	$(COMPOSE) up -d --build
+	@mkdir -p $(MARIADB_DIR)
+	@mkdir -p $(WORDPRESS_DIR)
+	@$(COMPOSE) up -d --build
 
 down:
-	$(COMPOSE) down
+	@$(COMPOSE) down
 
 start:
-	$(COMPOSE) start
+	@$(COMPOSE) start
 
 stop:
-	$(COMPOSE) stop
+	@$(COMPOSE) stop
 
 restart: down up
 
 logs:
-	$(COMPOSE) logs -f
+	@$(COMPOSE) logs -f
 
 ps:
-	$(COMPOSE) ps
+	@$(COMPOSE) ps
 
 clean: down
-	docker system prune -af
+	@docker system prune -af
 
 fclean: down
-	docker system prune -af --volumes
-	docker run --rm -v $(HOME)/data:/data debian:oldstable sh -c "rm -rf /data/mariadb /data/wordpress"
+	@docker system prune -af --volumes
+	@docker run --rm -v $(DATA_DIR):/data debian:bookworm sh -c "rm -rf /data/mariadb /data/wordpress"
 
 re: fclean all
 

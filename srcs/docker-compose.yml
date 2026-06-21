@@ -1,6 +1,6 @@
 services:
   mariadb:
-    image: mariadb
+    image: mariadb:inception
     container_name: mariadb
     build:
       context: requirements/mariadb
@@ -16,7 +16,7 @@ services:
       - "3306"
 
   wordpress:
-    image: wordpress
+    image: wordpress:inception
     container_name: wordpress
     build:
       context: requirements/wordpress
@@ -34,7 +34,7 @@ services:
       - "9000"
 
   nginx:
-    image: nginx
+    image: nginx:inception
     container_name: nginx
     build:
       context: requirements/nginx
@@ -57,15 +57,17 @@ volumes:
     driver_opts:
       type: none
       o: bind
-      device: ${HOME}/data/mariadb
+      device: /home/cldalmaz/data/mariadb
 
   wordpress:
     driver: local
     driver_opts:
       type: none
       o: bind
-      device: ${HOME}/data/wordpress
+      device: /home/cldalmaz/data/wordpress
 
 networks:
   inception:
     driver: bridge
+
+    
