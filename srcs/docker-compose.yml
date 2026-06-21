@@ -57,14 +57,14 @@ volumes:
     driver_opts:
       type: none
       o: bind
-      device: /home/cldalmaz/data/mariadb
+      device: /home/user/data/mariadb
 
   wordpress:
     driver: local
     driver_opts:
       type: none
       o: bind
-      device: /home/cldalmaz/data/wordpress
+      device: /home/user/data/wordpress
 
 networks:
   inception:

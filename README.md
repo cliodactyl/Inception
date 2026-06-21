@@ -290,7 +290,7 @@ Ensure your environment provides:
 Add the local domain entry:
 
 ```bash
-echo "127.0.0.1 cldalmaz.42.fr" | sudo tee -a /etc/hosts
+echo "127.0.0.1 user.42.fr" | sudo tee -a /etc/hosts
 ```
 
 Build and start the infrastructure:
@@ -327,8 +327,8 @@ This command:
 ## Verify TLS enforcement
 
 ```bash
-openssl s_client -connect cldalmaz.42.fr:443 -tls1_2
-openssl s_client -connect cldalmaz.42.fr:443 -tls1_3
+openssl s_client -connect user.42.fr:443 -tls1_2
+openssl s_client -connect user.42.fr:443 -tls1_3
 ```
 
 ---

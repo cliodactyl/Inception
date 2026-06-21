@@ -91,13 +91,9 @@ Passwords must not be written inside Dockerfiles.
 
 ## Domain configuration
 
-The project uses the domain:
-
-cldalmaz.42.fr
-
 Add this line to /etc/hosts:
 
-127.0.0.1    cldalmaz.42.fr
+127.0.0.1    
 
 Depending on the VM network configuration, the VM IP address may be used instead of 127.0.0.1.
 
@@ -247,8 +243,8 @@ The project does not use:
 
 The persistent data is stored on the host in:
 
-/home/cldalmaz/data/mariadb
-/home/cldalmaz/data/wordpress
+/home/user/data/mariadb
+/home/user/data/wordpress
 
 Inside the containers, these paths are mounted as:
 
@@ -365,15 +361,15 @@ docker exec -it nginx nginx -t
 
 Check HTTPS:
 
-curl -k https://cldalmaz.42.fr
+curl -k https://user.42.fr
 
 Check TLSv1.2:
 
-openssl s_client -connect cldalmaz.42.fr:443 -tls1_2
+openssl s_client -connect user.42.fr:443 -tls1_2
 
 Check TLSv1.3:
 
-openssl s_client -connect cldalmaz.42.fr:443 -tls1_3
+openssl s_client -connect user.42.fr:443 -tls1_3
 
 ---
 
@@ -397,7 +393,7 @@ The port mapping must remain:
 
 Check:
 
-- /etc/hosts contains cldalmaz.42.fr
+- /etc/hosts contains user.42.fr
 - containers are running
 - NGINX logs
 - WordPress logs
@@ -418,7 +414,7 @@ Check:
 
 ### Data not reset after rebuild
 
-Persistent data is stored in /home/cldalmaz/data.
+Persistent data is stored in /home/user/data.
 
 Use:
 
@@ -450,4 +446,4 @@ Before pushing, verify:
 - links are not used
 - WordPress has one administrator user and one regular user
 - administrator username does not contain admin or administrator
-- data is stored in /home/cldalmaz/data
+- data is stored in /home/user/data
